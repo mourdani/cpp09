@@ -1,16 +1,15 @@
-#include "BitcoinExchange.hpp"
-
-#include "BitcoinExchange.hpp"
+#include "../inc/BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange() {
-    this->data = parse_CSV("data.csv");
+    this->data = parse_CSV(CSVFILE);
 }
 
 std::map<std::string, double> BitcoinExchange::parse_CSV(std::string csv_file) {
     
     std::map<std::string, double> data;
     std::ifstream inputFile(csv_file);
-    if (!inputFile) { throw std::runtime_error("Failed to open data file."); }
+    std::cout << csv_file << std::endl;
+    if (!inputFile) { throw std::runtime_error("Failed to open CSV data file."); }
 
     std::string line;
     std::getline(inputFile, line);
