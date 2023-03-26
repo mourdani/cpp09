@@ -8,9 +8,6 @@
 #include <exception>
 #include <map>
 
-#define MAX	2147483647
-
-
 std::map<std::string, double> parseCSV(std::string csv_file);
 
 double findRate(const std::string& date, const std::map<std::string, double>& data);
