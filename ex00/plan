@@ -1,0 +1,11 @@
+- check if there is 2 arguments
+- create a map object to store parsed csv data
+- check the input .txt file for errors and parse it
+    - check if it exists
+    - parse it with gnl and check for bad input:
+        - if first line isnt the header (Date | Value)
+        - if the following line use the correct format ex: 2011-01-03 | 0.2
+        - if the date is valid, if the value is valid
+        - if the value is a negative number
+        - if the value is too large
+

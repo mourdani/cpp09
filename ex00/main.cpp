@@ -5,12 +5,11 @@ int main (int argc, char **argv) {
 		
 	if (argc != 2) throw std::runtime_error("usage: ./btc \"input_file.txt\"");
 	
-	std::map<std::string, double> exchange_rates = parseCSV("data.csv");
-
-
-	checkInput(argv[1], exchange_rates);
+	BitcoinExchange exchange;
+	exchange.process_input_file(argv[1]);
 	
-	//displayMap(exchange_rates);
+	
+	//exchange.display_history();
 	
 	} catch (const std::exception& e) { std::cout << e.what() << '\n'; return 1; }
 	return 0;
