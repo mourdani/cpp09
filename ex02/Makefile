@@ -1,17 +1,17 @@
 # Name of the program.
-NAME     := btc
-CSVFILE	 := \"src/data.csv\"
+NAME     := PmergeMe
+
 # Sources and objects.
 SRCS     := src/main.cpp \
-			src/BitcoinExchange.cpp
+			src/PmergeMe.cpp
 
-HDRS     := inc/BitcoinExchange.hpp
+HDRS     := inc/PmergeMe.hpp
 
 OBJS     := $(SRCS:.cpp=.o)
 
 # Define all the compiling flags.
 CXX      := c++
-CXXFLAGS := -Wall -Werror -Wextra -std=c++98 -DCSVFILE=$(CSVFILE)
+CXXFLAGS := -Wall -Werror -Wextra -std=c++98
 
 # Compile and create everything.
 all: $(NAME) $(HDRS)

@@ -6,6 +6,7 @@
 #include <sstream>
 #include <string>
 #include <exception>
+#include <cstdlib>
 #include <map>
 
 class BitcoinExchange {
@@ -21,13 +22,11 @@ public:
 
 private: 
     std::map<std::string, double> data;
-
     std::map<std::string, double> parse_CSV(std::string csv_file);
     bool check_date(const std::string& date);
     bool check_value(const std::string& value);
     std::string nearest_date(const std::string& current_date);
 };
-
 
 
 #endif
