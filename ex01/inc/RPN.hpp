@@ -2,18 +2,11 @@
 # define RPN_HPP
 
 #include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <cstdlib>
 #include <stack>
-#include <unistd.h>
+#include <sstream>
+#include <cstdlib>
+#include <string>
 
-class RPN {
-public:
-
-private:
-    std::stack<int> _stack;
-};
+int RPN(char *argv);
 
 #endif
