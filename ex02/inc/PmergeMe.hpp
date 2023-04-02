@@ -1,12 +1,23 @@
-#ifndef RPN_HPP
-# define RPN_HPP
+#ifndef PMERGEME_HPP
+# define PMERGEME_HPP
 
 #include <iostream>
-#include <stack>
-#include <sstream>
+#include <vector>
+#include <list>
+#include <algorithm>
+#include <stdexcept>
 #include <cstdlib>
-#include <string>
+#include <ctime>
+#include <cstdio>
 
-int RPN(char *argv);
+#define K 5
+
+void insertionSortVec(std::vector<int>& A, int p, int q);
+void mergeVec(std::vector<int>& A, int p, int q, int r);
+void mergeInsertVec(std::vector<int>& A, int p, int r);
+
+void insertionSortList(std::list<int>& A, int p, int q);
+void mergeList(std::list<int>& A, int p, int q, int r) ;
+void mergeInsertList(std::list<int>& A, int p, int r);
 
 #endif
