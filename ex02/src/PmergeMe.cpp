@@ -15,50 +15,42 @@ int main(int argc, char* argv[]) {
         int num = std::atoi(argv[i]);
             for(int j=0; argv[i][j]!='\0';j++) {
                 if(argv[i][j] < '0' || argv[i][j] > '9')
-                    { return(std::cout << "Error: bad input: [" << argv[i][j] << "]" << std::endl, 1); }
-                vec.push_back(num);
-                lst.push_back(num);           
+                    { return(std::cout << "Error: bad input: [" << argv[i][j] << "]" << std::endl, 1); 
+                }
             }
-        
-        std::cout << num << " ";
+            vec.push_back(num);
+            lst.push_back(num);           
     }
     }
     catch (const std::invalid_argument& e) 
         { return(std::cout << e.what() << std::endl, 1);}
+
+    std::cout << "--------------------------------------------------" << std::endl;
+    std::cout << "Original Order    : ";
+    for (long unsigned int i = 0; i < vec.size(); i++)
+        std::cout << vec[i] << " ";
     std::cout << std::endl;
 
 
-    // find size vec
-    int nVec = vec.size();
-   // int nLst = lst.size();
+    std::cout << "--------------------------------------------------" << std::endl;
+    Svector svec(vec);
+    std::clock_t start = std::clock();
+    svec.timsort(svec.size());
+    std::clock_t end = std::clock();
+    double elapsed = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000;
+    std::cout << "sorted            : ";
+    svec.print();
 
-    // Sort with vector and measure time
-    mergeInsertVec(vec, 0, nVec - 1);
-//
-//    // Sort with list and measure time
-//    std::clock_t start_lst = std::clock();
-//    mergeInsertList(lst, 0 , nLst-1);
-//    std::clock_t end_lst = std::clock();
-//    double elapsed_lst = static_cast<double>(end_lst - start_lst) / CLOCKS_PER_SEC * 1000000;
-//
-//    // Display sorted sequence with vector
-//    std::cout << "<vec>After: ";
-//    for (std::vector<int>::const_iterator it = vec.begin(); it != vec.end(); ++it) {
-//        std::cout << *it << " ";
-//    }
-//    std::cout << std::endl;
-//
-//    // Display sorted sequence with list
-//    std::cout << "<list>After: ";
-//    for (std::list<int>::const_iterator it = lst.begin(); it != lst.end(); ++it) {
-//        std::cout << *it << " ";
-//    }
-//    std::cout << std::endl;
-//
-//    // Display time taken by vector sort
-//
-//    // Display time taken by list sort
-//    std::cout << "Time to process a range of " << lst.size() << " elements with list sort: " << elapsed_lst << " us" << std::endl;
-//
+    std::cout << "--------------------------------------------------" << std::endl;
+    Slist slst(lst);
+    std::clock_t start2 = std::clock();
+    slst.timsort(0, slst.size() - 1);
+    std::clock_t end2 = std::clock();
+    double elapsed2 = static_cast<double>(end2 - start2) / CLOCKS_PER_SEC * 1000;
+
+
+    std::cout << "Time to process a range of " << vec.size() << " elements with std::vector : " << elapsed << " ms" << std::endl;
+    std::cout << "Time to process a range of " << lst.size() << " elements with std::list   : " << elapsed2 << " ms" << std::endl;
+    std::cout << "--------------------------------------------------" << std::endl;
     return 0;
 }

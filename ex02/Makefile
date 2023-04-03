@@ -3,16 +3,18 @@ NAME     := PmergeMe
 
 # Sources and objects.
 SRCS     := src/PmergeMe.cpp \
-			src/sort_list.cpp \
-			src/sort_vector.cpp 
+		src/Svector.cpp \
+		src/Slist.cpp 
 
-HDRS     := inc/PmergeMe.hpp
+HDRS     := inc/PmergeMe.hpp \
+	    inc/Svector.hpp \
+	    inc/Slist.hpp
 
 OBJS     := $(SRCS:.cpp=.o)
 
 # Define all the compiling flags.
 CXX      := c++
-CXXFLAGS := -Wall -Werror -Wextra -I -std=c++98
+CXXFLAGS := -Wall -Werror -Wextra -std=c++98
 
 # Compile and create everything.
 all: $(NAME) $(HDRS)
