@@ -77,6 +77,9 @@ std::string BitcoinExchange::nearest_date(const std::string& current_date) {
     int month = std::atoi(current_date.substr(5, 2).c_str());
     int day = std::atoi(current_date.substr(8, 2).c_str());
 
+    if (year > 2023)
+        { year = 2022; month = 03; day = 29;}
+
 
     int prev_day = day - 1;
     int prev_month = month;
@@ -127,7 +130,8 @@ std::string BitcoinExchange::nearest_date(const std::string& current_date) {
 
 bool BitcoinExchange::check_date(const std::string& date) {
     if (date.length() != 10)
-        return false; 
+        return (std::cout << "Error: bad date => " ,false); 
+
     
     int year, month, day;
     char sep1, sep2;
@@ -161,7 +165,7 @@ bool BitcoinExchange::check_value(const std::string& value) {
             std::cerr << "Error: bad value => ";
         return false;
     }
-    if (d < 0 || d > 2147483647) {
+    if (d < 0 || d > 1000) {
             std::cerr << "Error: bad value => ";
         return false;
     }
