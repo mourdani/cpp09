@@ -24,7 +24,9 @@ std::map<std::string, double> BitcoinExchange::parse_CSV(std::string csv_file) {
             double exchange_rate = std::atof(rate.c_str());
 
             data[date] = exchange_rate;
-        } catch (const std::exception&) { throw std::runtime_error("Invalid data in data file."); }
+        }
+        catch (const std::exception&)
+            { throw std::runtime_error("Invalid data in data file.");}
     }
 
     inputFile.close();
@@ -37,7 +39,8 @@ void BitcoinExchange::process_input_file(char *file) {
 
     std::string firstLine;
     std::getline(inputFile, firstLine);
-    if (firstLine != "date | value") { throw std::runtime_error("Error: Input file not recognised."); }
+    if (firstLine != "date | value")
+        { throw std::runtime_error("Error: Input file not recognised."); }
 
     std::string line;
     while (std::getline(inputFile, line)) {

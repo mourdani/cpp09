@@ -22,11 +22,8 @@ int RPN(char *argv)
             int res = 0;
 
             if (token == "+") res = a + b;
-
             else if (token == "-") res = a - b;
-
             else if (token == "*") res = a * b;
-
             else if (token == "/") {
                 if (b == 0) { std::cout << "Error: Invalid division" << std::endl; exit (1); }
                 res = a / b;
@@ -34,7 +31,6 @@ int RPN(char *argv)
 
             _stack.push(res);
         } 
-
         else { 
             for(int i=0; token[i]; i++) { 
                 if(token[i] < '0' || token[i] > '9') {
@@ -46,12 +42,10 @@ int RPN(char *argv)
             _stack.push(num);
         }
     }
-    
 
     if (_stack.size() != 1) { 
         std::cout << "Error: Invalid input expression." << std::endl;
         exit (1);
     }
-    
     return _stack.top();
 }
