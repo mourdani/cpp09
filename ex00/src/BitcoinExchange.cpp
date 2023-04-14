@@ -60,7 +60,6 @@ void BitcoinExchange::process_input_file(char *file) {
         double result = doubleValue * find_rate(date, this->data);
         std::cout << date << " => " << value << " = " << result << std::endl;
     }
-
     inputFile.close();
 }
 
