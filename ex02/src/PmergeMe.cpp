@@ -9,7 +9,6 @@ int main(int argc, char* argv[]) {
     std::vector<int> vec;
     std::list<int> lst;
 
-    // Parse input sequence and store in containers
     try {
     for (int i = 1; i < argc; i++) {
         int num = std::atoi(argv[i]);
@@ -31,7 +30,6 @@ int main(int argc, char* argv[]) {
         std::cout << vec[i] << " ";
     std::cout << std::endl;
 
-
     std::cout << "--------------------------------------------------" << std::endl;
     Svector svec(vec);
     std::clock_t start = std::clock();
@@ -47,7 +45,6 @@ int main(int argc, char* argv[]) {
     slst.timsort(0, slst.size() - 1);
     std::clock_t end2 = std::clock();
     double elapsed2 = static_cast<double>(end2 - start2) / CLOCKS_PER_SEC * 1000;
-
 
     std::cout << "Time to process a range of " << vec.size() << " elements with std::vector : " << elapsed << " ms" << std::endl;
     std::cout << "Time to process a range of " << lst.size() << " elements with std::list   : " << elapsed2 << " ms" << std::endl;
